@@ -10,21 +10,48 @@
 </head>
 <body>
     <main>
-        <!-- nome -->
+       <section id="ticket-price-calculator">
+            <!-- nome -->
         <label for="name">Nome Cognome</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" value="Adriana Santorio">
         <!-- kms -->
         <label for="kms"> Km da percorrere</label>
-        <input type="number" id="kms" name="kms">
+        <input type="number" id="kms" name="kms" value="240">
         <!-- fascia d' età -->
         <label for="age">Fascia d'età</label>
         <select name="age" id="age">
             <option></option>
-            <option value="minorenne"> minorenne</option>
-            <option value="maggiorenne"> maggiorenne</option>
+            <option value="underage"> Minorenne</option>
+            <option value="adult"> Maggiorenne</option>
             <option value="over65"> Over 65</option>
         </select>
         <button id="generate">Genera</button>
+       </section>
+       <section id="your-ticket">
+           <div id="passenger-details">
+                <!-- nome passeggero -->
+                <div id="passenger-name">
+                    <h3>Nome passeggero</h3>
+                </div>
+                <!-- Offerta -->
+                <div id="offer-type">
+                    <h4>Offerta</h4>
+                </div>
+                <!-- Carrozza -->
+                <div id="carriage-number">
+                    <h4>Carrozza</h4>
+                </div>
+                <!-- Codice CP -->
+                <div id="cp-code">
+                    <h4>Codice CP</h4>
+                </div>
+                <!-- Costo Biglietto -->
+                <divn id="ticket-price">
+                    <h4>Costo Biglietto</h4>
+                </div>
+           </div>
+       </section>
+        
         
     </main>
     <!-- script -->

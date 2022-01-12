@@ -20,13 +20,27 @@ Il recap dei dati e l'output del prezzo finale va stampato in pagina (formattato
 
 //* 1 HTML
 
-//2.1.1 individuare un elemento della pagina
+//4.2 dichiarare le variabili necessarie
+const passengerNameDisplay = document.getElementById('passenger-name');
+const offerDisplay = document.getElementById('offer-type');
+const carriageDisplay = document.getElementById('carriage-number');
+    //4.2.3.1 - determinare il numero della carrozza
+    const carriageNumber = Math.floor(Math.random() * 12 + 1);
 
+const cpCodeDisplay = document.getElementById('cp-code');
+    //4.2.4.1 - determinare il CP code
+    const cpCode = Math.floor(Math.random() * 100000);
+
+const priceDisplay = document.getElementById('ticket-price');
+
+
+//2.1.1 individuare un elemento della pagina
 const generateButton = document.getElementById('generate');
+
 //2.1.2 stabilire un (trigger?)
 generateButton.addEventListener('click', function(){
-    //2.2 raccogliere le informazioni dal form
     
+    //2.2 raccogliere le informazioni dal form
     const userName = document.getElementById('name').value;
     console.log(userName);
 
@@ -35,9 +49,36 @@ generateButton.addEventListener('click', function(){
 
     const userAge = document.getElementById('age').value;
     console.log(userAge);
-})
 
+    //to do: validazione
 
+    //* 4.1 creare un elemento nell' html
+    // TODO:appendchild?perchè non funge?
+   
+    //dichiarare ticket price + determinare il costo biglietto
+    let ticketPrice = (kms * 0.21).toFixed(2);
+
+    //dichiarare variabile tipo offerta
+    let offerType = 'Biglietto Standard';
+
+    //verificare tipo offerta e il prezzo del biglietto
+    if (userAge === 'over65') {
+        offerType = 'Tariffa Senior';
+        ticketPrice = (ticketPrice / 100 * 60).toFixed(2);
+    } else if (userAge === 'underage') {
+        offerType = 'Tariffa Junior';
+        ticketPrice = (ticketPrice /100 * 80).toFixed(2);
+    }
+    
+    //stampare in pagina gli elementi richiesti
+    passengerNameDisplay.innerHTML += (`<strong>${userName}</strong>`);
+    offerDisplay.innerHTML += (`<span>${offerType}</span>`)
+    carriageDisplay.innerHTML += (`<span>${carriageNumber}</span>`);
+    cpCodeDisplay.innerHTML += (`<span>${cpCode}</span>`);
+    priceDisplay.innerHTML += (`<span>${ticketPrice}€</span>`);
+
+    
+});
 
 
 
