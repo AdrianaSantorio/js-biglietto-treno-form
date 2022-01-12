@@ -52,32 +52,32 @@ generateButton.addEventListener('click', function(){
 
     //to do: validazione
 
-    //* 4.1 creare un elemento nell' html
-    // TODO:appendchild?perchè non funge?
-   
-    //dichiarare ticket price + determinare il costo biglietto
-    let ticketPrice = (kms * 0.21).toFixed(2);
+    if (!userName || !kms || !userAge) {
+        alert('Si prega di verificare di aver compilato tutti i campi nel formato richiesto');    
+    } else {
+        //dichiarare ticket price + determinare il costo biglietto
+        let ticketPrice = (kms * 0.21).toFixed(2);
 
-    //dichiarare variabile tipo offerta
-    let offerType = 'Biglietto Standard';
+        //dichiarare variabile tipo offerta
+        let offerType = 'Biglietto Standard';
 
-    //verificare tipo offerta e il prezzo del biglietto
-    if (userAge === 'over65') {
-        offerType = 'Tariffa Senior';
-        ticketPrice = (ticketPrice / 100 * 60).toFixed(2);
-    } else if (userAge === 'underage') {
-        offerType = 'Tariffa Junior';
-        ticketPrice = (ticketPrice /100 * 80).toFixed(2);
+        //verificare tipo offerta e il prezzo del biglietto
+        if (userAge === 'over65') {
+            offerType = 'Tariffa Senior';
+            ticketPrice = (ticketPrice / 100 * 60).toFixed(2);
+        } else if (userAge === 'underage') {
+            offerType = 'Tariffa Junior';
+            ticketPrice = (ticketPrice /100 * 80).toFixed(2);
+        }
+        
+        //stampare in pagina gli elementi richiesti
+        passengerNameDisplay.innerHTML += (`<strong>${userName}</strong>`);
+        offerDisplay.innerHTML += (`<span>${offerType}</span>`)
+        carriageDisplay.innerHTML += (`<span>${carriageNumber}</span>`);
+        cpCodeDisplay.innerHTML += (`<span>${cpCode}</span>`);
+        priceDisplay.innerHTML += (`<span>${ticketPrice}€</span>`);
     }
-    
-    //stampare in pagina gli elementi richiesti
-    passengerNameDisplay.innerHTML += (`<strong>${userName}</strong>`);
-    offerDisplay.innerHTML += (`<span>${offerType}</span>`)
-    carriageDisplay.innerHTML += (`<span>${carriageNumber}</span>`);
-    cpCodeDisplay.innerHTML += (`<span>${cpCode}</span>`);
-    priceDisplay.innerHTML += (`<span>${ticketPrice}€</span>`);
 
-    
 });
 
 
