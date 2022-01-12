@@ -1,1 +1,1 @@
-console.log('JS OK!')
+console.log('JS OK!');
